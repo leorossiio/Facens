@@ -1,0 +1,6 @@
+Em programação complexidade tem haver com o custo do software.
+
+
+Notação assintótica: 0(n)
+
+
