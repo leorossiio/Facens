@@ -2,44 +2,44 @@
 
 from ListaDuplamenteLigada import ListaDuplamenteLigada
 
-def fundir_listas_ordenadas(head1, head2):
-    if not head1:
-        return head2
-    elif not head2:
-        return head1
+def fundir_listas_ordenadas(head_one, head_two):
+    if head_one is None:
+        return head_two
+    elif head_two is None:
+        return head_one
 
-    head_mesclado = None
-    if head1.value <= head2.value:
-        head_mesclado = head1
-        head1 = head1.next
+    head_mixed = None
+    if head_one.value <= head_two.value:
+        head_mixed = head_one
+        head_one = head_one.next
     else:
-        head_mesclado = head2
-        head2 = head2.next
+        head_mixed = head_two
+        head_two = head_two.next
 
-    current = head_mesclado
+    current = head_mixed
 
-    while head1 and head2:
-        if head1.value <= head2.value:
-            current.next = head1
-            head1.prev = current
-            head1 = head1.next
+    while head_one and head_two:
+        if head_one.value <= head_two.value:
+            current.next = head_one
+            head_one.prev = current
+            head_one = head_one.next
         else:
-            current.next = head2
-            head2.prev = current
-            head2 = head2.next
+            current.next = head_two
+            head_two.prev = current
+            head_two = head_two.next
         current = current.next
 
-    if head1:
-        current.next = head1
-        head1.prev = current
-    elif head2:
-        current.next = head2
-        head2.prev = current
+    if head_one:
+        current.next = head_one
+        head_one.prev = current
+    elif head_two:
+        current.next = head_two
+        head_two.prev = current
 
-    while head_mesclado.prev:
-        head_mesclado = head_mesclado.prev
+    while head_mixed.prev:
+        head_mixed = head_mixed.prev
 
-    return ordenar_ascendente(head_mesclado)
+    return ordenar_ascendente(head_mixed)
 
 def ordenar_ascendente(head):
     current = head
@@ -58,19 +58,22 @@ primeiraLista.append(6)
 primeiraLista.append(4)
 primeiraLista.append(5)
 
+#########################################
+
 segundaLista = ListaDuplamenteLigada()
 segundaLista.append(1)
 segundaLista.append(8)
+segundaLista.append(10)
 segundaLista.append(3)
 segundaLista.append(9)
 segundaLista.append(2)
 
 # Fusão e ordenação
-head_mesclado = fundir_listas_ordenadas(primeiraLista.head, segundaLista.head)
+head_mixed = fundir_listas_ordenadas(primeiraLista.head, segundaLista.head)
 
 
-current = head_mesclado
+current = head_mixed
 while current:
-    print(current.value, end=' -> ' if current.next else '')
+    print(current.value, end=' => ' if current.next else '')
     current = current.next
 print()
