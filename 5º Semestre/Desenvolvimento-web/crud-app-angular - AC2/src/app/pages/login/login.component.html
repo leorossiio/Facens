@@ -21,19 +21,28 @@
                 />
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Senha</label
-                >
-                <input
-                  type="password"
-                  id="typePasswordX"
-                  class="form-control form-control-lg"
-                  [(ngModel)]="password"
-                  required
-                  (keydown.enter)="login()"
-                  placeholder="Insira a senha"
-                />
-              </div>
+                <label for="exampleInputPassword1" class="form-label">Senha</label>
+                <div class="input-group">
+                    <input
+                        type="{{ showPassword ? 'text' : 'password' }}"
+                        id="typePasswordX"
+                        class="form-control form-control-lg"
+                        [(ngModel)]="password"
+                        required
+                        (keydown.enter)="login()"
+                        placeholder="Insira a senha"
+                    />
+                    <button type="button" class="btn btn-outline-secondary" (click)="togglePasswordVisibility()">
+                      <ng-container *ngIf="showPassword; else hideIcon">
+                          Ocultar <i class="bi bi-eye-slash"></i>
+                      </ng-container>
+                      <ng-template #hideIcon>
+                          Mostrar <i class="bi bi-eye"></i>
+                      </ng-template>
+                  </button>
+                
+                </div>
+            </div>
 
               <div class="d-flex justify-content-center pt-3">
                 <button

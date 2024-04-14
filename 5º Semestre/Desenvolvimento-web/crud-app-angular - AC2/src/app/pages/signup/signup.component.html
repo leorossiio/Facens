@@ -6,46 +6,49 @@
           <div class="card-body p-5">
             <h2 class="text-uppercase text-center mb-5">Crie a sua conta</h2>
 
-            <form>
-             <div class="mb-3">
-                <label class="form-label" for="form3Example1cg">Nome</label>
+            <form class="formulario" (ngSubmit)="cadastrarUsuario()">
+              <div class="mb-3">
+                <label class="form-label" for="formNome">Nome</label>
                 <input
                   type="text"
-                  id="form3Example1cg"
+                  id="formNome"
                   class="form-control form-control-lg"
                   placeholder="Insira o Nome"
+                  required
                 />
               </div>
 
-             <div class="mb-3">
-                <label class="form-label" for="form3Example3cg">Email</label>
+              <div class="mb-3">
+                <label class="form-label" for="formEmail">Email</label>
                 <input
                   type="email"
-                  id="form3Example3cg"
+                  id="formEmail"
                   class="form-control form-control-lg"
                   placeholder="Insira o E-mail"
+                  required
                 />
               </div>
 
-             <div class="mb-3">
-                <label class="form-label" for="form3Example4cg">Senha</label>
+              <div class="mb-3">
+                <label class="form-label" for="formSenha">Senha</label>
                 <input
                   type="password"
-                  id="form3Example4cg"
+                  id="formSenha"
                   class="form-control form-control-lg"
                   placeholder="Insira a Senha"
+                  required
                 />
+                
               </div>
 
-             <div class="mb-3">
-                <label class="form-label" for="form3Example4cdg"
-                  >Confirme a sua senha</label
-                >
+              <div class="mb-3">
+                <label class="form-label" for="formConfirmaSenha">Confirme a sua senha</label>
                 <input
                   type="password"
-                  id="form3Example4cdg"
+                  id="formConfirmaSenha"
                   class="form-control form-control-lg"
                   placeholder="Insira a Senha Novamente"
+                  required
                 />
               </div>
 
@@ -53,10 +56,10 @@
                 <input
                   class="form-check-input me-2"
                   type="checkbox"
-                  value=""
                   id="form2Example3cg"
+                  required
                 />
-                <label class="form-check-label" for="form2Example3g">
+                <label class="form-check-label" for="form2Example3cg">
                   Aceito todas as afirmações em
                   <a href="#!" class="text-white"><u>Termos de serviço</u></a>
                 </label>
@@ -64,16 +67,19 @@
 
               <div class="d-flex justify-content-center">
                 <button
-                  type="button"
+                  type="submit"
                   id="s-btn-cadastro"
                   class="btn btn-outline-success btn-lg px-5"
+                  (click)="validateForm($event)"
                 >
                   Registrar-se
                 </button>
               </div>
 
               <div>
-                <p class="mb-0 mt-3 text-center">Já possuí uma conta? <a routerLink="/login" class="text-white-50 fw-bold">Login</a>
+                <p class="mb-0 mt-3 text-center">
+                  Já possui uma conta?
+                  <a routerLink="/login" class="text-white-50 fw-bold">Login</a>
                 </p>
               </div>
             </form>
