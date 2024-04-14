@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Query } from '@angular/core';
 
 @Component({
   selector: 'app-users',
@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
-
   user = [
     { nome: 'Ana', email: 'ana@example.com', senha: 'senha123', status: 'Ativo', editing: false },
     { nome: 'Carlos', email: 'carlos@example.com', senha: 'senha123', status: 'Ativo', editing: false },

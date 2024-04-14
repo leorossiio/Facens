@@ -16,6 +16,17 @@
   border-color: rgb(255, 120, 48);
 }
 
+input{
+  padding: 6px 0px 6px 5px
+}
+
+
+.invisible-color {
+  background-color: #00000000;
+  border: none;
+  color: white;
+}
+
 .botao-laranja:focus,
 .botao-laranja:active {
   box-shadow: 0 0 0 0.2rem rgb(255, 120, 48);

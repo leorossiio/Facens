@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 import { UsersComponent } from './pages/home/components/users/users.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WelcomeComponent } from './pages/home/components/welcome/welcome.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TarefasComponent } from './pages/home/components/tarefas/tarefas.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { CommonModule } from '@angular/common';
@@ -32,9 +32,10 @@ import { CommonModule } from '@angular/common';
     RouterModule,
     AppRoutingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
-  exports:[
+  exports: [
     AlertComponent
   ],
   providers: [],

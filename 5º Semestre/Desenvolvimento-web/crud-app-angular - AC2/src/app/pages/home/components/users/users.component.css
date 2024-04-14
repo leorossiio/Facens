@@ -7,6 +7,16 @@
   color: white;
   border-color: green
 }
+.invisible-color {
+  background-color: #00000000;
+  border: none;
+  color: white;
+}
+
+
+input{
+  padding: 6px 0px 6px 5px
+}
 
 .botao-verde:focus,
 .botao-verde:active {

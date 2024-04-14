@@ -15,24 +15,25 @@
         'table-success': task.status === 'Concluído'
       }"
     >
-      <td>
-        <div class="descricao-tarefa" *ngIf="!task.editing">
-          <span>{{ task.description }}</span>
-        </div>
-
-        <input
-          type="text"
-          class="form-control input-editar"
-          *ngIf="task.editing"
-          [(ngModel)]="task.description"
-          (keyup.enter)="salvarEdicao(task)"
-        />
-      </td>
-      <td>
-        <div class="status">
-          <span>{{ task.status }}</span>
-        </div>
-      </td>
+    <td>
+      <input
+        [(ngModel)]="task.description"
+        class="form-control"
+        [ngClass]="{
+          'invisible-color': !task.editing,
+          'visible-color': task.editing
+        }"
+        [disabled]="!task.editing"
+      />
+    </td>
+    <td>
+      <input
+      [(ngModel)]="task.status"
+      type="status"
+      class="invisible-color"
+      [disabled]="!task.editing || task.editing"
+    />
+    </td>
       <td class="text-center">
         <button
           class="btn btn-acao"
@@ -62,7 +63,7 @@
           {{ task.editing ? "Salvar" : "Editar" }}
         </button>
         <button class="btn btn-danger btn-acao" (click)="deletarTarefa(task)">
-          Deletar
+          <i class="bi bi-trash"></i>
         </button>
       </td>
     </tr>
@@ -74,4 +75,3 @@
     Nova Tarefa <i class="bi bi-plus-circle"></i>
   </button>
 </div>
-

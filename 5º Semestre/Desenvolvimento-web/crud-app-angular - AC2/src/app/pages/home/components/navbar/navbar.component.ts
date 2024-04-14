@@ -20,5 +20,9 @@ export class NavbarComponent {
     this.activeLink = link;
     localStorage.setItem('activeLink', link);
   }
+
+  logout(){
+    localStorage.removeItem('activeLink');
+  }
   
 }
