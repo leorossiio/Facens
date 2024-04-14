@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { WelcomeComponent } from './pages/home/components/welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
 import { TarefasComponent } from './pages/home/components/tarefas/tarefas.component';
+import { AlertComponent } from './shared/alert/alert.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,18 @@ import { TarefasComponent } from './pages/home/components/tarefas/tarefas.compon
     NavbarComponent,
     UsersComponent,
     WelcomeComponent,
-    TarefasComponent
+    TarefasComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CommonModule
+  ],
+  exports:[
+    AlertComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

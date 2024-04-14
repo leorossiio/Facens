@@ -11,3 +11,10 @@
 .active {
     font-weight: 600;
 }
+
+.navbar ul{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: 20px;
+    gap: 10px;
+}
