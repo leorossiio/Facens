@@ -27,45 +27,12 @@ export class SignupComponent {
   }
 
   validateForm(event: MouseEvent) {
-    // Inicialize variáveis para os campos de entrada
-    const nomeInput = document.getElementById('nome');
-    const emailInput = document.getElementById('email');
-    const senhaInput = document.getElementById('senha');
-    const confirmaSenhaInput = document.getElementById('confirmaSenha');
-
-    // Remove a classe de perigo (input-danger) dos campos de entrada, caso já esteja aplicada
-    nomeInput?.classList.remove('input-danger');
-    emailInput?.classList.remove('input-danger');
-    senhaInput?.classList.remove('input-danger');
-    confirmaSenhaInput?.classList.remove('input-danger');
-
-    // Verifica se o formulário é inválido
     if (this.signupForm.invalid) {
-      // Adiciona a classe de perigo (input-danger) aos campos de entrada inválidos
-      if (!this.signupForm.get('nome')?.valid) {
-        nomeInput?.classList.add('input-danger');
-      }
-
-      if (!this.signupForm.get('email')?.valid) {
-        emailInput?.classList.add('input-danger');
-      }
-
-      if (!this.signupForm.get('senha')?.valid) {
-        senhaInput?.classList.add('input-danger');
-      }
-
-      if (!this.signupForm.get('confirmaSenha')?.valid) {
-        confirmaSenhaInput?.classList.add('input-danger');
-      }
-
-      // Exibe um alerta para campos inválidos
-      alert('Por favor, preencha todos os campos corretamente.');
-
-      // Impede o envio do formulário se for inválido
       event.preventDefault();
+      alert('Por favor, preencha todos os campos corretamente.');
+      return;
     }
   }
-
 
   cadastrarUsuario() {
     if (this.signupForm.invalid) {
