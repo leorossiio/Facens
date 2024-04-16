@@ -1,0 +1,91 @@
+<section class="gradient-custom">
+  <div class="container py-5 vh-100">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem">
+          <div class="card-body p-5">
+            <h2 class="text-uppercase text-center mb-5">Crie a sua conta</h2>
+
+            <form class="formulario" (ngSubmit)="cadastrarUsuario()">
+              <div class="mb-3">
+                <label class="form-label" for="formNome">Nome</label>
+                <input
+                  type="text"
+                  id="formNome"
+                  class="form-control form-control-lg"
+                  placeholder="Insira o Nome"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="formEmail">Email</label>
+                <input
+                  type="email"
+                  id="formEmail"
+                  class="form-control form-control-lg"
+                  placeholder="Insira o E-mail"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="formSenha">Senha</label>
+                <input
+                  type="password"
+                  id="formSenha"
+                  class="form-control form-control-lg"
+                  placeholder="Insira a Senha"
+                  required
+                />
+                
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="formConfirmaSenha">Confirme a sua senha</label>
+                <input
+                  type="password"
+                  id="formConfirmaSenha"
+                  class="form-control form-control-lg"
+                  placeholder="Insira a Senha Novamente"
+                  required
+                />
+              </div>
+
+              <div class="form-check d-flex justify-content-center mb-5 mt-5">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="form2Example3cg"
+                  required
+                />
+                <label class="form-check-label" for="form2Example3cg">
+                  Aceito todas as afirmações em
+                  <a href="#!" class="text-white"><u>Termos de serviço</u></a>
+                </label>
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <button
+                  type="submit"
+                  id="s-btn-cadastro"
+                  class="btn btn-outline-success btn-lg px-5"
+                  (click)="validateForm($event)"
+                >
+                  Registrar-se
+                </button>
+              </div>
+
+              <div>
+                <p class="mb-0 mt-3 text-center">
+                  Já possui uma conta?
+                  <a routerLink="/login" class="text-white-50 fw-bold">Login</a>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
