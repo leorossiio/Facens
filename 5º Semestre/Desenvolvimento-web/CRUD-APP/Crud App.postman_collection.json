@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "7a068f5d-613f-4d8a-9b0a-af35bfe24844",
+		"name": "Crud App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14823508"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Kaique 2\",\r\n    \"email\": \"kaique2@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Kaique editado\",\r\n    \"email\": \"k@gmail.com editado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "532e5baf-0fdf-419e-b11d-69cdf0dafb7a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "532e5baf-0fdf-419e-b11d-69cdf0dafb7a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
