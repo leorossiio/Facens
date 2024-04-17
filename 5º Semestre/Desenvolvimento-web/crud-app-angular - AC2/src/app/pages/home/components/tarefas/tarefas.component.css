@@ -81,3 +81,7 @@ th {
 .btn-acao {
   width: 100px;
 }
+
+.limitador-table{
+overflow-x: auto;
+}
