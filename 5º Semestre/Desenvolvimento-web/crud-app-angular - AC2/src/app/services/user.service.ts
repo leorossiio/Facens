@@ -9,8 +9,8 @@ export class UserService {
   currentUser = this.user.asObservable();
   users = [
     {
-      email: 'admin',
-      senha: '1234'
+      email: 'admin@gmail.com',
+      senha: 'password'
     }
   ];
 

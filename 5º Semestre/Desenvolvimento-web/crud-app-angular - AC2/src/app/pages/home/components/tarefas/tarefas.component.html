@@ -2,65 +2,52 @@
 <table class="table table-striped table-dark">
   <thead>
     <tr>
+      <th scope="col" class="coluna-tabela">#</th>
       <th scope="col" class="coluna-tabela">Descrição</th>
       <th scope="col" class="coluna-tabela">Status</th>
       <th scope="col" class="coluna-tabela text-center">Ação</th>
     </tr>
   </thead>
   <tbody>
-    <tr
-      *ngFor="let task of task"
-      [ngClass]="{
+    <tr *ngFor="let task of tasks" [ngClass]="{
         'table-warning': task.status === 'Em andamento',
-        'table-success': task.status === 'Concluído'
-      }"
-    >
-    <td>
-      <input
-        [(ngModel)]="task.description"
-        class="form-control"
-        [ngClass]="{
-          'invisible-color': !task.editing,
-          'visible-color': task.editing
-        }"
-        [disabled]="!task.editing"
-      />
-    </td>
-    <td>
-      <input
-      [(ngModel)]="task.status"
-      type="status"
-      class="invisible-color"
-      [disabled]="!task.editing || task.editing"
-    />
-    </td>
+        'table-success': task.status === 'Concluído',
+        'cor-preta': task.status === 'Em andamento' || task.status === 'Concluído'
+      }">
+      <td  [ngClass]="{
+        'cor-preta': task.status === 'Em andamento' || task.status === 'Concluído'
+      }"><input [(ngModel)]="task.id" type="status" class="invisible-color"
+          [disabled]="!task.editing || task.editing" /></td>
+      <!-- Adicionando a célula do ID -->
+      <td [ngClass]="{
+        'cor-preta': task.status === 'Em andamento' || task.status === 'Concluído'
+      }">
+        <input [(ngModel)]="task.description" class="form-control" [ngClass]="{
+            'invisible-color': !task.editing,
+            'visible-color': task.editing
+          }" [disabled]="!task.editing" />
+      </td>
+      <td [ngClass]="{
+        'cor-preta': task.status === 'Em andamento' || task.status === 'Concluído'
+      }">
+        <input [(ngModel)]="task.status" type="status" class="invisible-color"
+          [disabled]="!task.editing || task.editing" />
+      </td>
       <td class="text-center">
-        <button
-          class="btn btn-acao"
-          style="margin-right: 10px"
-          [ngClass]="{
+        <button class="btn btn-acao" style="margin-right: 10px" [ngClass]="{
             'btn-primary': task.status === 'Não iniciado',
             'btn-success': task.status === 'Em andamento',
             'botao-laranja': task.status === 'Concluído'
-          }"
-          (click)="botaoConcluir(task)"
-        >
+          }" (click)="botaoConcluir(task)">
           {{
-            task.status === "Não iniciado"
-              ? "Iniciar"
-              : task.status === "Em andamento"
-              ? "Concluir"
-              : "Reiniciar"
+          task.status === 'Não iniciado' ? 'Iniciar' :
+          task.status === 'Em andamento' ? 'Concluir' :
+          'Reiniciar'
           }}
         </button>
-        <button
-          class="btn btn-acao"
-          style="margin-right: 10px"
-          [class.btn-warning]="!task.editing"
-          [class.btn-success]="task.editing"
-          (click)="editarTarefa(task)"
-        >
-          {{ task.editing ? "Salvar" : "Editar" }}
+        <button class="btn btn-acao" style="margin-right: 10px" [class.btn-warning]="!task.editing"
+          [class.btn-success]="task.editing" (click)="editarTarefa(task)">
+          {{ task.editing ? 'Salvar' : 'Editar' }}
         </button>
         <button class="btn btn-danger btn-acao" (click)="deletarTarefa(task)">
           <i class="bi bi-trash"></i>

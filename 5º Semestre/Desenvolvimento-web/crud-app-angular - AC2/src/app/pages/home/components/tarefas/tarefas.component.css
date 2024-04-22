@@ -85,3 +85,7 @@ th {
 .limitador-table{
 overflow-x: auto;
 }
+
+.cor-preta > input {
+  color: black;
+}

@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
 })
 export class TarefasComponent {
   
-  task = [
-    { description: 'Tarefa 1', status: 'Não iniciado', editing: false },
-    { description: 'Tarefa 2', status: 'Não iniciado', editing: false },
-    { description: 'Tarefa 3', status: 'Não iniciado', editing: false },
-    { description: 'Tarefa 4', status: 'Não iniciado', editing: false },
-    { description: 'Tarefa 5', status: 'Não iniciado', editing: false }
+  tasks = [
+    { id: 1, description: 'Tarefa 1', status: 'Não iniciado', editing: false },
+    { id: 2, description: 'Tarefa 2', status: 'Não iniciado', editing: false },
+    { id: 3, description: 'Tarefa 3', status: 'Não iniciado', editing: false },
+    { id: 4, description: 'Tarefa 4', status: 'Não iniciado', editing: false },
+    { id: 5, description: 'Tarefa 5', status: 'Não iniciado', editing: false }
   ];
 
   botaoConcluir(task: any) {
@@ -24,6 +24,7 @@ export class TarefasComponent {
       task.status = 'Não iniciado';
     }
   }
+
   editarTarefa(task: any) {
     task.editing = !task.editing;
   }
@@ -33,17 +34,19 @@ export class TarefasComponent {
   }
 
   deletarTarefa(task: any) {
-    const index = this.task.indexOf(task);
+    const index = this.tasks.indexOf(task);
     if (index !== -1) {
-      this.task.splice(index, 1);
+      this.tasks.splice(index, 1);
     }
   }
+
   incluirTarefa() {
     const novaTarefa = {
-        description: '',
-        status: 'Não iniciado',
-        editing: true
+      id: this.tasks.length + 1,
+      description: '',
+      status: 'Não iniciado',
+      editing: true
     };
-    this.task.push(novaTarefa);
+    this.tasks.push(novaTarefa);
   }
 }
