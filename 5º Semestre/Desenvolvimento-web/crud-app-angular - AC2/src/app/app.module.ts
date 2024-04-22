@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TarefasComponent } from './pages/home/components/tarefas/tarefas.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { CommonModule } from '@angular/common';
+import { AddUserPageComponent } from './pages/home/components/addUser/add-user-page/add-user-page.component';
+import { EditUserPageComponent } from './pages/home/components/editUser/edit-user-page/edit-user-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { CommonModule } from '@angular/common';
     UsersComponent,
     WelcomeComponent,
     TarefasComponent,
-    AlertComponent
+    AlertComponent,
+    AddUserPageComponent,
+    EditUserPageComponent
   ],
   imports: [
     BrowserModule,
