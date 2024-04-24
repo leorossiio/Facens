@@ -49,4 +49,7 @@ export class TarefasComponent {
     };
     this.tasks.push(novaTarefa);
   }
+  podeIncluirTarefa(): boolean {
+    return this.tasks.every(task => !task.editing);
+  }  
 }

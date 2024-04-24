@@ -18,3 +18,7 @@
   input{
     border-radius: 10px;
   }
+
+  .form-check-label{
+    font-size: 15px;
+  } 

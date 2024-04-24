@@ -1,4 +1,5 @@
-import { Component, Query } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -6,12 +7,13 @@ import { Component, Query } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
+  constructor(private router: Router) { }
   user = [
-    { nome: 'Ana', email: 'ana@example.com', senha: 'senha123', status: 'Ativo', editing: false },
-    { nome: 'Carlos', email: 'carlos@example.com', senha: 'senha123', status: 'Ativo', editing: false },
-    { nome: 'Diego', email: 'carlos@example.com', senha: 'senha123', status: 'Ativo', editing: false },
-    { nome: 'Leonardo', email: 'carlos@example.com', senha: 'senha123', status: 'Ativo', editing: false },
-    { nome: 'Maria', email: 'carlos@example.com', senha: 'senha123', status: 'Inativo', editing: false }
+    { nome: 'Ana', email: 'ana@example.com', senha: 'senha123', status: 'Ativo', funcao: 'Engenheiro de FE', editing: false },
+    { nome: 'Carlos', email: 'carlos@example.com', senha: 'senha123', status: 'Ativo', funcao: 'Engenheiro de BE', editing: false },
+    { nome: 'Diego', email: 'carlos@example.com', senha: 'senha123', status: 'Ativo', funcao: 'Analista de dados', editing: false },
+    { nome: 'Leonardo', email: 'carlos@example.com', senha: 'senha123', status: 'Ativo', funcao: 'Líder Técnico', editing: false },
+    { nome: 'Maria', email: 'carlos@example.com', senha: 'senha123', status: 'Inativo', funcao: 'Engenheiro de BE', editing: false }
   ];
 
   botaoAlterarStatus(user: any) {
@@ -19,7 +21,7 @@ export class UsersComponent {
   }
 
   editarUsuario(user: any) {
-    user.editing = !user.editing;
+    this.router.navigate(['/app/editUser', user]); // Supondo que o ID do usuário seja 'id'
   }
 
   salvarEdicao(user: any) {
@@ -32,15 +34,8 @@ export class UsersComponent {
       this.user.splice(index, 1);
     }
   }
-  incluirUsuario() {
-    const novoUsuario = {
-      nome: '',
-      email: '',
-      senha: '',
-      status: 'Ativo',
-      editing: true
-    };
-    this.user.push(novoUsuario);
-  }
 
+  incluirUsuario() {
+    this.router.navigate(['/app/addUser']);
+  }
 }

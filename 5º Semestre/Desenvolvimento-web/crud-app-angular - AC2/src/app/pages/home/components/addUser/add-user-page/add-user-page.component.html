@@ -1,1 +1,47 @@
-<p>add-user-page works!</p>
+<section class="gradient-custom">
+    <div class="py-5 card-container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem">
+                    <div class="card-body p-5">
+                        <h1 class="text-center mt-5 mb-5">Cadastro de usuário</h1>
+
+                        <form (ngSubmit)="salvarUsuario()" #userForm="ngForm" class="d-flex flex-column gap-3">
+                            <div class="d-flex flex-column">
+                                <label class="form-label" for="formNome">Nome</label>
+                                <input type="text" [(ngModel)]="novoUsuario.nome" name="nome" placeholder="Nome"
+                                    required>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <label class="form-label" for="formEmail">Email</label>
+                                <input type="email" [(ngModel)]="novoUsuario.email" name="email" placeholder="E-mail"
+                                    required email>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <label class="form-label" for="formFuncao">Função</label>
+                                <select [(ngModel)]="novoUsuario.funcao" name="funcao" required>
+                                    <option value="" disabled selected>Selecione a função</option>
+                                    <option value="Engenheiro de FE">Engenheiro de FE</option>
+                                    <option value="Engenheiro de BE">Engenheiro de BE</option>
+                                    <option value="Analista de dados">Analista de dados</option>
+                                    <option value="Líder Técnico">Líder Técnico</option>
+                                </select>
+                            </div>
+                            
+                            <div class="d-flex flex-column">
+                                <label class="form-label" for="formSenha">Senha</label>
+                                <input type="password" [(ngModel)]="novoUsuario.senha" name="senha" placeholder="Senha"
+                                    minlength="6" maxlength="15" required>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" id="s-btn-cadastro" class="btn btn-outline-success btn-lg px-5"
+                                    [disabled]="!userForm.valid">Salvar</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

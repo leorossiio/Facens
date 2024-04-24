@@ -14,7 +14,7 @@
         'table-success': task.status === 'Concluído',
         'cor-preta': task.status === 'Em andamento' || task.status === 'Concluído'
       }">
-      <td  [ngClass]="{
+      <td [ngClass]="{
         'cor-preta': task.status === 'Em andamento' || task.status === 'Concluído'
       }"><input [(ngModel)]="task.id" type="status" class="invisible-color"
           [disabled]="!task.editing || task.editing" /></td>
@@ -23,9 +23,9 @@
         'cor-preta': task.status === 'Em andamento' || task.status === 'Concluído'
       }">
         <input [(ngModel)]="task.description" class="form-control" [ngClass]="{
-            'invisible-color': !task.editing,
-            'visible-color': task.editing
-          }" [disabled]="!task.editing" />
+          'invisible-color': !task.editing,
+          'visible-color': task.editing
+        }" [disabled]="!task.editing" required />
       </td>
       <td [ngClass]="{
         'cor-preta': task.status === 'Em andamento' || task.status === 'Concluído'
@@ -38,7 +38,7 @@
             'btn-primary': task.status === 'Não iniciado',
             'btn-success': task.status === 'Em andamento',
             'botao-laranja': task.status === 'Concluído'
-          }" (click)="botaoConcluir(task)">
+          }" (click)="botaoConcluir(task)" [disabled]="task.editing">
           {{
           task.status === 'Não iniciado' ? 'Iniciar' :
           task.status === 'Em andamento' ? 'Concluir' :
@@ -47,7 +47,8 @@
         </button>
         <button class="btn btn-acao" style="margin-right: 10px" [class.btn-warning]="!task.editing"
           [class.btn-success]="task.editing" (click)="editarTarefa(task)">
-          {{ task.editing ? 'Salvar' : 'Editar' }}
+          {{ task.editing ? 'Salvar' : '' }}
+          <i class="bi bi-pencil-fill text-white" *ngIf="!task.editing"></i>
         </button>
         <button class="btn btn-danger btn-acao" (click)="deletarTarefa(task)">
           <i class="bi bi-trash"></i>
@@ -58,7 +59,7 @@
 </table>
 
 <div class="d-flex justify-content-center">
-  <button class="btn btn-success" id="nova-tarefa" (click)="incluirTarefa()">
+  <button class="btn btn-success" id="nova-tarefa" (click)="incluirTarefa()" [disabled]="!podeIncluirTarefa()">
     Nova Tarefa <i class="bi bi-plus-circle"></i>
   </button>
 </div>

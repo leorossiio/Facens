@@ -5,6 +5,7 @@
       <th scope="col" class="coluna-tabela">Nome</th>
       <th scope="col" class="coluna-tabela">Email</th>
       <th scope="col" class="coluna-tabela">Senha</th>
+      <th scope="col" class="coluna-tabela">Função</th>
       <th scope="col" class="coluna-tabela">Status</th>
       <th scope="col" class="text-center coluna-tabela">Ação</th>
     </tr>
@@ -13,67 +14,49 @@
     <tr *ngFor="let user of user">
       <td>
         <!-- Usando `ngClass` para alternar a cor de fundo e `ngDisabled` para desabilitar o input -->
-        <input
-          [(ngModel)]="user.nome"
-          class="form-control"
-          [ngClass]="{
+        <input [(ngModel)]="user.nome" class="form-control" [ngClass]="{
             'invisible-color': !user.editing,
             'visible-color': user.editing
-          }"
-          [disabled]="!user.editing"
-        />
+          }" [disabled]="!user.editing" />
       </td>
       <td>
-        <input
-          [(ngModel)]="user.email"
-          class="form-control"
-          [ngClass]="{
+        <input [(ngModel)]="user.email" class="form-control" [ngClass]="{
             'invisible-color': !user.editing,
             'visible-color': user.editing
-          }"
-          [disabled]="!user.editing"
-        />
+          }" [disabled]="!user.editing" />
       </td>
       <td>
-        <input
-          [(ngModel)]="user.senha"
-          type="password"
-          class="form-control"
-          [ngClass]="{
+        <input [(ngModel)]="user.senha" type="password" class="form-control" [ngClass]="{
             'invisible-color': !user.editing,
             'visible-color': user.editing
-          }"
-          [disabled]="!user.editing"
-        />
+          }" [disabled]="!user.editing" />
       </td>
       <td>
-        <input
-        [(ngModel)]="user.status"
-        type="status"
-        class="invisible-color"
-        [disabled]="!user.editing || user.editing"
-      />
+        <select [(ngModel)]="user.funcao" class="form-select" [ngClass]="{
+            'invisible-color': !user.editing,
+            'visible-color': user.editing
+          }" [disabled]="!user.editing">
+          <option value="Engenheiro de FE">Engenheiro de FE</option>
+          <option value="Engenheiro de BE">Engenheiro de BE</option>
+          <option value="Analista de dados">Analista de dados</option>
+          <option value="Líder Técnico">Líder Técnico</option>
+        </select>
+      </td>
+      <td>
+        <input [(ngModel)]="user.status" type="status" class="invisible-color"
+          [disabled]="!user.editing || user.editing" />
       </td>
       <td class="justify-content-center d-flex">
-        <button
-          class="btn btn-acao"
-          style="margin-right: 10px"
-          [ngClass]="{
+        <button class="btn btn-acao" style="margin-right: 10px" [ngClass]="{
                 'btn-danger': user.status === 'Ativo',
                 'btn-success': user.status === 'Inativo',
-              }"
-          (click)="botaoAlterarStatus(user)"
-        >
+              }" (click)="botaoAlterarStatus(user)">
           {{ user.status === "Ativo" ? "Desativar" : "Ativar" }}
         </button>
-        <button
-          class="btn btn-acao"
-          style="margin-right: 10px"
-          [class.btn-warning]="!user.editing"
-          [class.btn-success]="user.editing"
-          (click)="editarUsuario(user)"
-        >
-          {{ user.editing ? "Salvar" : "Editar" }}
+        <button class="btn btn-acao" style="margin-right: 10px" [class.btn-warning]="!user.editing"
+          [class.btn-success]="user.editing" (click)="editarUsuario(user)">
+          {{ user.editing ? 'Salvar' : '' }}
+          <i class="bi bi-pencil-fill text-white" *ngIf="!user.editing"></i>
         </button>
         <button class="btn btn-danger btn-acao" (click)="deletarUsuario(user)">
           <i class="bi bi-trash"></i>
